@@ -69,6 +69,12 @@ class TrainConfig:
     seed: int = 1
     render: bool = False
     checkpoint: str = "checkpoints/best.pt"
+    # Visualization options
+    visualize_train: bool = False
+    visual_rollouts: int = 1
+    viz_fps: int = 15
+    visualize_maze_generation: bool = False
+    maze_gen_delay_ms: int = 30
 
 
 def epsilon_by_step(

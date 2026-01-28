@@ -51,6 +51,11 @@ def parse_args() -> argparse.Namespace:
         default="checkpoints/best.pt",
         help="Path for saving/loading checkpoints.",
     )
+    parser.add_argument("--visualize_train", action="store_true")
+    parser.add_argument("--visual_rollouts", type=int, default=1)
+    parser.add_argument("--viz_fps", type=int, default=15)
+    parser.add_argument("--visualize_maze_generation", action="store_true")
+    parser.add_argument("--maze_gen_delay_ms", type=int, default=30)
     return parser.parse_args()
 
 
@@ -101,6 +106,11 @@ def main() -> None:
             seed=args.seed,
             render=args.render,
             checkpoint=args.checkpoint,
+            visualize_train=args.visualize_train,
+            visual_rollouts=args.visual_rollouts,
+            viz_fps=args.viz_fps,
+            visualize_maze_generation=args.visualize_maze_generation,
+            maze_gen_delay_ms=args.maze_gen_delay_ms,
         )
         run_training(train_cfg)
         return
